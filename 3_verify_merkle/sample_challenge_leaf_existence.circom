@@ -7,7 +7,7 @@ template LeafExistence(k, l){
 // k is depth of tree
 // l is length of preimage of leaf
 
-    signal private input preimage[l]; 
+    signal input preimage[l]; 
     signal input root;
     signal input paths2_root_pos[k];
     signal input paths2_root[k];
@@ -16,6 +16,7 @@ template LeafExistence(k, l){
     for (var i = 0; i < l; i++){
         leaf.in[i] <== preimage[i];
     }
+    leaf.k <== l;
 
     component computed_root = GetMerkleRoot(k);
     computed_root.leaf <== leaf.out;
@@ -30,4 +31,4 @@ template LeafExistence(k, l){
 
 }
 
-component main = LeafExistence(2, 3);
+component main {public [root, paths2_root_pos, paths2_root]} = LeafExistence(2, 3);
