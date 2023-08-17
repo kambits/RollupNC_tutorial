@@ -29,8 +29,9 @@ $ circom <your_circuit_name>.circom --r1cs --wasm
 Generates public private inputs for your circuit
 ```
 $ node generate_circuit_input.js
-Note: This exists only for the course of our workshop
 ```
+Note: This exists only for the course of our workshop
+
 
 ## 3. Calculate witness
 Generates witness for your circuit using the compiled circuit and input file created in the above step
@@ -131,11 +132,11 @@ $ snarkjs groth16 prove circuit_final.zkey witness.wtns proof.json public.json
 $ snarkjs groth16 verify verification_key.json public.json proof.json
 ```
 
-## 6.Generate the solidity verifier
+## 6. Generate the solidity verifier
 ```
 $ snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
 ```
-## 7.Verifying the proof on-chain
+## 7. Verifying the proof on-chain
 ```
 $ snarkjs zkey export soliditycalldata public.json proof.json
 ```
@@ -145,3 +146,4 @@ $ snarkjs zkey export soliditycalldata public.json proof.json
 Head over to : https://keen-noyce-c29dfa.netlify.com/#0
 
 The commands in above tutorial is out of date due to circom and snarkjs upgrade.
+But the explination about the code is clear.
